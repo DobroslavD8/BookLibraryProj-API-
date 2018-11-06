@@ -28,6 +28,7 @@ namespace BookLibrary.Logic
             return result;
         }
 
+        //Търси книги по зададени филтри за име и/или автор на книгата
         //Викаме горният метод и филтрираме по име
         //.....
 
@@ -39,11 +40,23 @@ namespace BookLibrary.Logic
             return result;
         }
 
-        public void List<Book> AddBook(Book book)
+        List<Book> books = new List<Book>();
+        public void AddBook(string Title, string Author, string Genre, string Description, int Quantity, DateTime CreatedDate) // adding book
         {
-            ctx.AddBook(Book);
-            ctx.SaveChanges();
+            books.Add(new Book(Title, Author, Genre, Description, Quantity, CreatedDate));
         }
+
+        // Редактиране на информацията за книга Void EditBook(Book book)
+
+        public void DeleteBook(string Title) // deleting book
+        {
+            books.RemoveAll(Book => Book.Title == Title);
+        }
+
+        // Списък с кои книги не са върнати в срок List<Book> GetNotReturnedBooks()
+
+        // Списък с кои книги е взел даден читател - търсене по ID на читател List<Book> GetBorrowedBooksByReader(int readerID)
+
 
     }
 }

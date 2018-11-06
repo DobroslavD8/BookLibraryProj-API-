@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Logic\ReaderService.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Entities\Book.cs" />
     <Compile Include="Entities\BorrowBook.cs" />
